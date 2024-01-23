@@ -1,0 +1,121 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    char choice;
+    double a, b, result;
+
+    do {
+        cout << "Выберите операцию:\n";
+        cout << "1. Сложение\n";
+        cout << "2. Вычитание\n";
+        cout << "3. Частное\n";
+        cout << "4. Произведение\n";
+        cout << "5. Возведение в степень\n";
+        cout << "6. Нахождение квадратного корня\n";
+        cout << "7. Нахождение 1 процента от числа\n";
+        cout << "8. Найти факториал числа\n";
+        cout << "9. Выйти из программы\n";
+
+        cin >> choice;
+
+        switch (choice) {
+        case '1':
+            cout << "Введите первое число: ";
+            cin >> a;
+            cout << "Введите второе число: ";
+            cin >> b;
+            result = a + b;
+            cout << "Результат: " << result << endl;
+            break;
+
+        case '2':
+            cout << "Введите первое число: ";
+            cin >> a;
+            cout << "Введите второе число: ";
+            cin >> b;
+            result = a - b;
+            cout << "Результат: " << result << endl;
+            break;
+
+        case '3':
+            cout << "Введите делимое: ";
+            cin >> a;
+            cout << "Введите делитель: ";
+            cin >> b;
+            if (b != 0) {
+                result = a/b;
+                cout << "Результат: " << result << endl;
+            }
+            else {
+                cout << "Ошибка: деление на ноль" << endl;
+            }
+            break;
+
+        case '4':
+            cout << "Введите первый множитель: ";
+            cin >> a;
+            cout << "Введите второй множитель: ";
+            cin >> b;
+            result = a * b;
+            cout << "Результат: " << result << endl;
+            break;
+
+        case '5':
+            cout << "Введите основание: ";
+            cin >> a;
+            cout << "Введите степень: ";
+            cin >> b;
+            result = pow(a, b);
+            cout << "Результат: " << result << endl;
+            break;
+
+        case '6':
+            cout << "Введите число для извлечения квадратного корня: ";
+            cin >> a;
+            if (a >= 0) {
+                result = sqrt(a);
+                cout << "Результат: " << result << endl;
+            }
+            else {
+                cout << "Ошибка: извлечение корня из отрицательного числа" << endl;
+            }
+            break;
+
+        case '7':
+            cout << "Введите число: ";
+            cin >> a;
+            result = a/ 100;
+            cout << "Результат: " << result << endl;
+            break;
+
+        case '8':
+            result = 1;
+            cout << "Введите число для нахождения факториала: ";
+            cin >> a;
+            if ( a < 0) {
+                cout << "Ошибка: нельзя найти факториал отрицательного числа" << endl;
+            }
+            else {
+                for (int i = 1; i <= a; ++i) {
+                    result *= i;
+                }
+                cout << "Результат: " << result << endl;
+            }
+            break;
+
+        case '9':
+            cout << "Выход из программы." << endl;
+            break;
+
+        default:
+            cout << "Некорректная операция." << endl;
+            break;
+        }
+    } while (choice != '9');
+
+    return 0;
+}
